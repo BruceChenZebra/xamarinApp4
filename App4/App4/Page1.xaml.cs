@@ -73,10 +73,6 @@ namespace App4
             Navigation.PushAsync(new Page15());
         }
 
-        private void Page16(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Page15123123());
-            Navigation.PushAsync(new sdfsdf());
-        }
+
     }
 }
