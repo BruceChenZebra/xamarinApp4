@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:App4"
+             mc:Ignorable="d"
+             x:Class="App4.Page15">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:IntToBoolConverter x:Key="intBool"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0">
+            <Entry x:Name="entry1"
+                   Text=""
+                   Placeholder="enter entry 1"
+                   VerticalOptions="Center"/>
+            <Button Text="Search"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    IsEnabled="{Binding Source={x:Reference entry1},Path=Text.Length,Converter={StaticResource intBool}}"/>
+            <Entry x:Name="Entry2"
+                   Text=""
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="enter descrition"/>
+            <Button Text="Submt"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    IsEnabled="{Binding Source={x:Reference Entry2},Path=Text.Length,Converter={StaticResource intBool}}"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

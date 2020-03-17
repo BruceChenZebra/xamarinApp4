@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:App4"
+             x:Class="App4.Page8"
+             Title="page8">
+    <ContentPage.BindingContext>
+        <local:HslViewModel Color="Aqua"/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10,0">
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <BoxView Color="{Binding Color}" VerticalOptions="CenterAndExpand"/>
+            <Label Text="{Binding Hue, StringFormat='Hue={0:F2}'}" HorizontalOptions="CenterAndExpand"/>
+            <Slider Value="{Binding Hue}"/>
+            <Label Text="{Binding Saturation, StringFormat='Saturation={0:F2}'}" HorizontalOptions="CenterAndExpand"/>
+            <Slider Value="{Binding Saturation}"/>
+            <Label Text="{Binding Luminosity, StringFormat='Saturation={0:F2}'}" HorizontalOptions="CenterAndExpand"/>
+            <Slider Value="{Binding Luminosity}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

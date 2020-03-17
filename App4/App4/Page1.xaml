@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App4.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Hello, XAML!"
+               VerticalOptions="Center"
+               HorizontalTextAlignment="Center"
+               Rotation="-15"
+               IsVisible="true"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="Blue" />
+            <d:Button Text="Page2" Clicked="Page2" />
+            <Button Text="Page3" Clicked="Page3" />
+            <Button Text="Page4" Clicked="Page4"/>
+            <Button Text="Page5" Clicked="Page5" />
+            <Button Text="Page6" Clicked="Page6"/>
+            <Button Text="Page7" Clicked="Page7"/>
+            <Button Text="Page8" Clicked="Page8"/>
+            <Button Text="Page9" Clicked="Page9"/>
+            <Button Text="Page10" Clicked="Page10"/>
+            <Button Text="Page14" Clicked="Page14"/>
+            <Button Text="Page15" Clicked="Page15"/>
+            <Button Text="Page16" Clicked="Page16"/>
+            <Entry VerticalOptions="Center"/>
+            <Editor VerticalOptions="Center"/>
+            <TableView Intent="Settings">
+                <TableSection Title="Ring">
+                    <SwitchCell Text="New 1"></SwitchCell>
+                    <SwitchCell Text="New 2"/>
+                </TableSection>
+            </TableView>
+            <Picker Title="select a monkey"
+                    TitleColor="Accent">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Bruce01</x:String>
+                        <x:String>Bruce02</x:String>
+                        <x:String>Bruce03</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+                    
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:App4"
+             mc:Ignorable="d"
+             x:Class="App4.Page5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="boxSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS, Android, UWP" Value="50" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="rowHeight"
+                        x:TypeArguments="x:Int32">
+                <On Platform="iOS, Android, UWP" Value="60" />
+            </OnPlatform>
+
+            <local:DoubleToIntConverter x:Key="intConverter" />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ListView ItemsSource="{x:Static local:NamedColor.All}"
+              RowHeight="{StaticResource rowHeight}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="5, 5, 0, 5"
+                                 Orientation="Horizontal"
+                                 Spacing="15">
+
+                        <BoxView WidthRequest="{StaticResource boxSize}"
+                                 HeightRequest="{StaticResource boxSize}"
+                                 Color="{Binding Color}" />
+
+                        <StackLayout Padding="5, 0, 0, 0"
+                                     VerticalOptions="Center">
+
+                            <Label Text="{Binding FriendName}"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium" />
+
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="0">
+                           
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:globe="clr-namespace:System.Globalization;assembly=netstandard"
+             mc:Ignorable="d"
+             x:Name="page"
+             x:Class="App4.Page14">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10, 0">
+        <TimePicker x:Name="timePicker" />
+
+        <Label Text="{Binding Source={x:Reference timePicker},
+                              Path=Time.TotalSeconds,
+                              StringFormat='{0} total seconds'}" />
+
+        <Label Text="{Binding Source={x:Reference page},
+                              Path=Content.Children.Count,
+                              StringFormat='There are {0} children in this StackLayout'}" />
+
+        <Label Text="{Binding Source={x:Static globe:CultureInfo.CurrentCulture},
+                              Path=DateTimeFormat.DayNames[3],
+                              StringFormat='The middle day of the week is {0}'}" />
+
+        <Label Text="{Binding Source={x:Reference page},
+                              Path=Content,
+                      StringFormat='{0}'}" />
+
+        <Label Text="{Binding Source={x:Reference page},
+                              Path=Content.Children[1].Text.Length,
+                              StringFormat='The second Label has {0} characters'}" />
+    </StackLayout>
+</ContentPage>

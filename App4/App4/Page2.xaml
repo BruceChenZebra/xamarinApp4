@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App4.Page2">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LayoutOptions x:Key="horioption"
+                           Alignment="Center"/>
+            <LayoutOptions x:Key="vertoption"
+                           Alignment="Center"
+                           Expands="True"/>
+            <x:Double x:Key="borderwidth">3</x:Double>
+            <OnPlatform x:Key="testcolor"
+                        x:TypeArguments="Color">
+                <On Platform="iOS" Value="Red"/>
+                <On Platform="Android" Value="Aqua"/>
+                <On Platform="UWP" Value="Red"/>
+            </OnPlatform>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+        <Slider VerticalOptions="CenterAndExpand"
+                    ValueChanged="Slider_ValueChanged"
+                    Grid.Row="5" Grid.Column="0"/>
+
+        <Label x:Name="valueLabel"
+                   Text="A simple label"
+                   FontSize="Large"
+                   HorizontalOptions="{StaticResource horioption}"
+                   VerticalOptions="{StaticResource vertoption}" 
+               TextColor="{StaticResource testcolor}"
+               Grid.Row="1" Grid.Column="1"/>
+
+        <Slider x:Name="label2"
+               Maximum="360"
+                VerticalOptions="Center"
+                Grid.Row="0" Grid.Column="2"
+                />
+
+        <Label BindingContext="{x:Reference label2}"
+               Text="{Binding Path=Value,StringFormat='the anger is {0:F1} degrees'}"
+               Rotation="{Binding Value}"
+               Grid.Row="2" Grid.Column="3"/>
+
+        <Button Text="click me!"
+                    HorizontalOptions="{StaticResource horioption}"
+                    VerticalOptions="{StaticResource vertoption}"
+                    Clicked="Button_ClickVedAsync"
+                    TextColor="{StaticResource testcolor}"
+                Grid.Row="3" Grid.Column="4"/>
+        <Button Text="don't click me!(page 4)"
+                    HorizontalOptions="{StaticResource horioption}"
+                    VerticalOptions="{StaticResource vertoption}"
+                    TextColor="{StaticResource testcolor}"
+                    Clicked="Button_Clicked"
+                Grid.Row="4" Grid.Column="5"/>
+        <Button>
+            <Button.Text>
+                Hello, XAML!
+            </Button.Text>
+            <Button.FontAttributes>
+                Bold
+            </Button.FontAttributes>
+            <Grid.Row>3</Grid.Row>
+            <Grid.Column>0</Grid.Column>
+            
+        </Button>
+            
+    </Grid>
+</ContentPage>
