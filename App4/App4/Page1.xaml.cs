@@ -75,7 +75,7 @@ namespace App4
 
         private void Page16(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page16());
+            
         }
     }
 }
